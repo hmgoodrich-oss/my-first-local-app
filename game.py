@@ -14,4 +14,3 @@ class Game:
                 "weapon": random.choice(self.weapons),
                 "room": random.choice(self.rooms)   
             }
-# end of file
