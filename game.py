@@ -15,6 +15,7 @@ class Game:
                 "weapon": random.choice(self.weapons),
                 "room": random.choice(self.rooms)   
             }
+    
     def check_accusation(self, suspect, weapon, room):
          incorrect = []
          if suspect == self.solution["suspect"]:
