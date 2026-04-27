@@ -20,18 +20,30 @@ class Game:
     
     def check_accusation(self, suspect, weapon, room):
          incorrect = []
-         if suspect == self.solution["suspect"]:
+         if suspect != self.solution["suspect"]:
               incorrect.append("suspect", suspect)
-         if weapon == self.solution["weapon"]:
+              print()
+         if weapon != self.solution["weapon"]:
               incorrect.append("weapon", weapon)
-         if room == self.solution["room"]:
+         if room != self.solution["room"]:
               incorrect.append("room", room)
-
-   # timer
+     
+     def make_accusation(self, suspect, weapon, room):
+         if suspect == self.solution["suspect"] and
+               weapon == self.solution["weapon"] and
+               room == self.solution["room"]:
+               print(f"You've done it! Arrest {self.solution["suspect"]}")
+               break
+         else:
+              print(f"You've got the wrong man...it was {self.solution["suspect"]} with
+                    the {self.solution["weapon"]} in the {self.solution["room"]}")
+              
+ # timer - googled how to do a countdown in python
     start_time = time.time()
     time_limit = 300 
     time_left = time_limit - (time.time() - start_time) #current time - start time
     if time_left = 0:
      print("TIME'S UP! YOU LOSE.")
      break
+
             
