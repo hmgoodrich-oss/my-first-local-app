@@ -1,5 +1,7 @@
 import random
 
+import time
+
 class Game: 
     def __init__(self):
         self.suspects = ["Miss Scarlet", "Professor Plum", "Mrs. Peacock", "Mr. Green", "Colonel Mustard", "Mrs. White"]
@@ -25,5 +27,11 @@ class Game:
          if room == self.solution["room"]:
               incorrect.append("room", room)
 
-            
+   # timer
+    start_time = time.time()
+    time_limit = 300 
+    time_left = time_limit - (time.time() - start_time) #current time - start time
+    if time_left = 0:
+     print("TIME'S UP! YOU LOSE.")
+     break
             
