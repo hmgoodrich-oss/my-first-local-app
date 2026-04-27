@@ -27,6 +27,12 @@ class Game:
               incorrect.append("weapon", weapon)
          if room != self.solution["room"]:
               incorrect.append("room", room)
+              #give a clue?
+     if incorrect:
+          print(f"You realize {random.choice(incorrect)} couldn't be it..
+               by jove, it's all coming together!")'
+     else:
+          print("You're on the right track!")
      
      def make_accusation(self, suspect, weapon, room):
          if suspect == self.solution["suspect"] and
