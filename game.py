@@ -27,29 +27,32 @@ class Game:
               incorrect.append("weapon", weapon)
          if room != self.solution["room"]:
               incorrect.append("room", room)
-              #give a clue?
-     if incorrect:
-          print(f"You realize {random.choice(incorrect)} couldn't be it..
-               by jove, it's all coming together!")'
-     else:
+     #give a clue? 
+         if incorrect != []:
+          print(f"You realize {random.choice(incorrect)} couldn't be it..by jove, it's all coming together!")
+         else:
           print("You're on the right track!")
      
-     def make_accusation(self, suspect, weapon, room):
-         if suspect == self.solution["suspect"] and
-               weapon == self.solution["weapon"] and
-               room == self.solution["room"]:
-               print(f"You've done it! Arrest {self.solution["suspect"]}")
-               break
+    def make_accusation(self, suspect, weapon, room):
+         if suspect == self.solution["suspect"] and weapon == self.solution["weapon"] and room == self.solution["room"]:
+               print(f"You've done it! Arrest {self.solution['suspect']}")
+               # break
          else:
-              print(f"You've got the wrong man...it was {self.solution["suspect"]} with
-                    the {self.solution["weapon"]} in the {self.solution["room"]}")
+              print(f"You've got the wrong man...it was {self.solution['suspect']} with the {self.solution['weapon']} in the {self.solution['room']}")
               
  # timer - googled how to do a countdown in python
-    start_time = time.time()
-    time_limit = 300 
-    time_left = time_limit - (time.time() - start_time) #current time - start time
-    if time_left = 0:
-     print("TIME'S UP! YOU LOSE.")
-     break
-
-            
+# start_time = time.time()
+# time_limit = 300 
+# time_left = time_limit - (time.time() - start_time) #current time - start time
+# if time_left == 0:
+#      print("TIME'S UP! YOU LOSE.")
+#      break
+     
+# gameplay
+tries = 0
+print("It's a dark and stormy night...and your dinner party has just been interrupted by a murder! It's up to you to find out who, how, and where.")
+while tries <= 10:
+     print("1. Make an accusation")
+     print("2. Make an arrest")
+     choice = int(input("Let's:"))
+     if choice = 1: 
