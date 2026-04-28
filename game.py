@@ -12,11 +12,16 @@ class Game:
           self.setup_game()
 
      def setup_game(self):
+          # murderer = random.choice(self.suspects)
+          # mweapon = random.choice(self.weapons)
+          # scene = random.choice(self.rooms)
+          # self.solution = {murderer, mweapon, scene}
           self.solution = {
                "suspect": random.choice(self.suspects),
                "weapon": random.choice(self.weapons),
                "room": random.choice(self.rooms)   
           }
+          print(self.solution)
     
      def check_accusation(self, args):
           if len(args) < 3:
@@ -25,6 +30,13 @@ class Game:
           weapon = args[1]
           room = args[2]
           incorrect = []
+          # if suspect != murderer:
+          #      incorrect.append(f"suspect: {suspect}")
+          #      print()
+          # if weapon != mweapon:
+          #      incorrect.append(f"weapon: {weapon}")
+          # if room != scene:
+          #      incorrect.append(f"room: {room}")
           if suspect != self.solution["suspect"]:
                incorrect.append(f"suspect: {suspect}")
                print()
@@ -38,25 +50,24 @@ class Game:
           else:
                print("You're on the right track!")
 
-     def make_accusation(self, suspect, weapon, room):
+     def make_accusation(self, args):
+          if len(args) < 3:
+              print("Accusation should be in the form 'suspect, weapon, room'")
+          suspect = args[0]
+          weapon = args[1]
+          room = args[2]
           if suspect == self.solution["suspect"] and weapon == self.solution["weapon"] and room == self.solution["room"]:
                print(f"You've done it! Arrest {self.solution['suspect']}")
-               # break
+               break
           else:
                print(f"You've got the wrong man...it was {self.solution['suspect']} with the {self.solution['weapon']} in the {self.solution['room']}")
-              
- # timer - googled how to do a countdown in python
-# start_time = time.time()
-# time_limit = 300 
-# time_left = time_limit - (time.time() - start_time) #current time - start time
-# if time_left == 0:
-#      print("TIME'S UP! YOU LOSE.")
-#      break
+               break
      
 game = Game()
 # gameplay
 tries = 0
 print("It's a dark and stormy night...and your dinner party has just been interrupted by a murder! It's up to you to find out who, how, and where.")
+print(f"It must be one of these people: {game.suspects} with one of these objects: {game.weapons} in one of these rooms: {game.rooms}")
 while tries <= 10:
      print("1. Make an accusation")
      print("2. Make an arrest")
@@ -64,5 +75,9 @@ while tries <= 10:
      if choice == 1:
           ans = input("Who did it? With what? and Where?")
           args = ans.split(',')
-          print(f'args: {args}')
+          # print(f'args: {args}')
           game.check_accusation(args)
+     if choice == 2:
+          ans = input("Who did it? With what? and Where?")
+          args = ans.split(',')
+          game.make_accusation(args)
