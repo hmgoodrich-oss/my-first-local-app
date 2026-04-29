@@ -27,6 +27,7 @@ while tries <= 10 and game.over == False:
     elif choice == "4":
         print(f"It must be one of these people: {game.suspects} with one of these objects: {game.weapons} in one of these rooms: {game.rooms}")
     elif choice == "5":
+        print(game.solution)
         break
     else:
         print("You're talking nonsense, detective...what should we do?")
