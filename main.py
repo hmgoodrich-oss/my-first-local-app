@@ -18,6 +18,10 @@ while tries <= 10 and game.over == False:
         args = ans.split(',')
         # print(f'args: {args}')
         game.check_accusation(args)
+        tries += 1
+        if tries > 10:
+            print(game.solution)
+            break
     elif choice == "2":
         ans = input("Who did it? With what? and Where?")
         args = ans.split(',')
@@ -31,4 +35,5 @@ while tries <= 10 and game.over == False:
         break
     else:
         print("You're talking nonsense, detective...what should we do?")
-    tries += 1
+    
+    
