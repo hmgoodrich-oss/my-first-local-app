@@ -31,3 +31,4 @@ while tries <= 10 and game.over == False:
         break
     else:
         print("You're talking nonsense, detective...what should we do?")
+    tries += 1
