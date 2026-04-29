@@ -9,7 +9,8 @@ while tries <= 10 and game.over == False:
     print("1. Make an accusation")
     print("2. Make an arrest")
     print("3. Check Notes")
-    print("4. Give up :(")
+    print("4. Redisplay suspects, weapons, and rooms")
+    print("5. Give up :(")
     print("\n")
     choice = input("Let's:")
     if choice == "1":
@@ -24,6 +25,8 @@ while tries <= 10 and game.over == False:
     elif choice == "3":
         game.display_evidence()
     elif choice == "4":
+        print(f"It must be one of these people: {game.suspects} with one of these objects: {game.weapons} in one of these rooms: {game.rooms}")
+    elif choice == "5":
         break
     else:
         print("You're talking nonsense, detective...what should we do?")
